@@ -1,0 +1,109 @@
+<div class="row">
+<h1 class="ayrinti-baslik"><i class="fa fa-ravelry" aria-hidden="true"></i> <%=ilaclar[0].ad%></h1>
+<hr style="border-color:cornflowerblue">
+
+<div class="col-md-3">
+<img src="<%=ilaclar[0].resimUrl%>" class="thumbnail wfull">  </img>
+</div>
+
+<div class="col-md-6">
+<table class="table-striped table-bordered table">
+                        <tbody><tr>
+                            <th>
+                                <a>İlacın Adı:</a>
+                            </th>
+                            <td>
+                                <%=ilaclar[0].ad%>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <a>Üretici Firma</a>
+                            </th>
+                            <td>
+                                 <%=ilaclar[0].firma%>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <a>Birim Miktarı</a>
+                            </th>
+                            <td>
+                                 500 miligram
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <a>Tür</a>
+                            </th>
+                            <td>
+                                Ağrı Kesici
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th>
+                                <a>Kullanım Şekli</a>
+                            </th>
+                            <td>
+                                <%=ilaclar[0].kullanim%>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <a>Reçete Durumu</a>
+                            </th>
+                            <td>
+                                Yalnızca reçete ile satılabilir
+                            </td>
+                        </tr>
+
+                         <tr>
+                            <th>
+                                <a>Satış Fiyatı</a>
+                            </th>
+                            <td>
+                                12,85
+                            </td>
+                        </tr>
+                         <tr>
+                            <th>
+                                <a>Yan Etkiler</a>
+                            </th>
+                            <td>
+                                <%=ilaclar[0].yanekiler%>
+                            </td>
+                        </tr>
+                         <tr>
+                            <th>
+                                <a>Yaş Sınırı</a>
+                            </th>
+                            <td>
+                                -15
+                            </td>
+                        </tr>
+                          <tr>
+                            <th>
+                                <a>Kimler Kullanmamalı</a>
+                            </th>
+                            <td>
+                                hiper tansiyonu olanlar kesinlikle kullanmamalı
+                            </td>
+                        </tr>
+
+
+
+
+                        
+                    </tbody></table>
+
+
+
+
+</div>
+</div>
+<div class="row yorumlar-genel">
+<h3 class="yorumlar-baslik"><i class="fa fa-comments-o" aria-hidden="true"></i>  <%=ilaclar[0].ad%> için yapılan yorumlar:</h3>
+<hr style="border-color:#000">
+
+</div>

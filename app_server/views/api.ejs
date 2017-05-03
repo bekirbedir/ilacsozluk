@@ -1,0 +1,71 @@
+
+<div class="row">
+<div class="col-md-10 col-md-offset-1">
+<div class="page-header">
+  <h1 style="text-align:center" >API Kullanımı <small>Get,Post,Put,Delete </small></h1>
+</div>
+</div>
+</div>
+
+<div class="row">
+<div class="col-md-10 col-md-offset-1 jumbotron">
+<div class="page-header">
+  <h3><b>İlaç Listeleme</b> <small>Get ve Post METODU</small></h3>
+</div>
+<p class="api-baslik"> Uygulama içerisindeki tüm ilaçları " /api/ilaclar " üzerinden listeleyebilir ve ayrıntıları görüntüleyebilirsiniz.</p>
+<p class="api-kod">router.get('/ilaclar', apiController.ilaclarGet);</p>
+ve
+<p class="api-kod">router.post('/ilaclar', apiController.ilaclarPost);</p><p> fonksiyonları ile istek gönderdiğinizde uygulama size şu cevabı döndürür:</p> 
+<img src="../../public/resimler/apiilaclar.jpg" >
+
+</div>
+</div>
+
+
+
+<div class="row">
+<div class="col-md-10 col-md-offset-1 jumbotron">
+<div class="page-header">
+  <h3><b>İlaç Silme</b> <small>DELETE METODU</small></h3>
+</div>
+<p class="api-baslik"> Uygulama içerisindekin veri silmek için " /api/delete/:ilacAdi " yolu üzerinden ilaç adı ile ilaç silinebilir</p>
+<p class="api-kod">router.delete('/delete/:ilacAdi', apiController.ilacdelete);</p>
+ fonksiyonu ile istek gönderdiğinizde uygulama size şu cevabı döndürür:</p> 
+<img src="../../public/resimler/apidelete.jpg" >
+
+</div>
+</div>
+
+
+
+<div class="row">
+<div class="col-md-10 col-md-offset-1 jumbotron">
+<div class="page-header">
+  <h3><b>İlaç Ekle</b> <small>POST METODU</small></h3>
+</div>
+<p class="api-baslik"> Uygulamaya veri eklemek için " /api/ilacekle/:ilacAdi/:firmaAdi/:kullanim/:yanetkiler/:resimUrl " yolu üzerinden gerekli bilgiler girilerek veri eklenebilir</p>
+<p class="api-kod">router.post('/ilacekle', apiController.ilacAdd);</p>
+ fonksiyonu ile istek gönderdiğinizde post ile gelen gizli veriler işlenerek kaydedilir ve size şu cevabı döndürür:</p> 
+<img src="../../public/resimler/apiekle.jpg" >
+
+</div>
+</div>
+
+
+
+<div class="row">
+<div class="col-md-10 col-md-offset-1 jumbotron">
+<div class="page-header">
+  <h3><b>İlaç Güncelle</b> <small>PUT METODU</small></h3>
+</div>
+<p class="api-baslik"> Uygulamada var olan bir verinin bilgilerini değiştirmek için " /api/update/:_id/:ilacAdi/:firmaAdi/:kullanim/:yanetkiler "
+ yolu üzerinden gerekli bilgiler girilerek o id ye ait veri biglileri güncellenir</p>
+<p class="api-kod">router.put('/update/:_id/:ilacAdi/:firma/:kullanim/:yanetkiler', apiController.ilacUpdate);</p>
+ fonksiyonu ile istek gönderdiğinizde gelen veriler işlenerek düzenlenir ve size şu cevabı döndürür:</p> 
+<img src="../../public/resimler/apiupdate.jpg" >
+
+</div>
+</div>
+
+
+

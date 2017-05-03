@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="row">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <div class="panel-title">İletişim</div>
+            </div>
+            <div class="panel-body">
+
+                <form action="/iletisim" method="POST">
+                    <div style="margin-bottom:25px;padding: 10px" class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input id="iletisim-ad" type="text" class="form-control" name="iletisimAd" placeholder="Adınız:">
+                    </div>
+                    <div style="margin-bottom:25px;padding: 10px" class="input-group ">
+                        <span class="input-group-addon "><i class="glyphicon glyphicon-envelope "></i></span>
+                        <input id="iletisim-mail" type="password " class="form-control " name="iletisimMail" placeholder="Mail Adresiniz: ">
+                    </div>
+                    <div style="margin-bottom:25px;padding: 10px" class="input-group ">
+                        <span class="input-group-addon "><i class="glyphicon glyphicon-font "></i></span>
+                        <input id="iletisim-mesaj" type="textarea" rows="10" cols="50"  class="form-control " name="iletisimMesaj" placeholder="Mesajınız ">
+                    </div>
+                    <div class="pull-right">
+
+                        <input type="submit" class="btn btn-primary" value="Gönder ">
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>

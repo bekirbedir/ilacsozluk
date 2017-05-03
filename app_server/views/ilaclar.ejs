@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="row">
+        <h1>Kayıtlı İlaçlar</h1>
+
+        <table class="table table-hover table-responsive table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>AD</th>
+                    <th>Firma</th>
+                    <th>Kullanım</th>
+                    <th>Yan Etkiler</th>
+                    <th>resimUrl</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <%for(var i=0; i<ilaclar.length;i++){%>
+                    <tr>
+
+
+
+
+                        <td>
+                            <%=i%>
+                        </td>
+                        <td>
+                            <%=ilaclar[i].ad%>
+                        </td>
+                        <td>
+                            <%=ilaclar[i].firma%>
+                        </td>
+                        <td>
+                            <%=ilaclar[i].kullanim%>
+                        </td>
+                        <td>
+                            <%=ilaclar[i].yanEtkiler%>
+                        </td>
+                        <td>
+                            <a href="/ilac/ilacsil/<%=ilaclar[i].ad%>">Sil</a>
+                        </td>
+
+                    </tr>
+                    <%}%>
+            </tbody>
+
+        </table>
+    </div>
+</div>

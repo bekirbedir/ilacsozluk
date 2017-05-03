@@ -1,0 +1,53 @@
+<div class="container">
+    <div class="row">
+        <div class="loginPanel">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <div class="panel-title">Yeni İlaç Ekle</div>
+                </div>
+
+                <div class="panel-body">
+                    <form action="/ilac/ilacekle" method="POST">
+                        <!--ad-->
+                        <div style="margin-bottom:25px" class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <input id="ilac-ad" type="text" class="form-control" name="ad" placeholder="Adınız">
+                        </div>
+                        <!--soyad-->
+                        <div style="margin-bottom:25px" class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <input id="ilac-firma" type="text" class="form-control" name="firma" placeholder="Firma Adı">
+                        </div>
+                        <!--email-->
+                        <div style="margin-bottom:25px" class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <input id="ilac-kullanim" type="text" class="form-control" name="kullanim" placeholder="Kullanım Şekli">
+                        </div>
+                        <!--kullaniciad-->
+
+                        <div style="margin-bottom:25px" class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                            <input id="ilac-yanetkiler" type="text" class="form-control" name="yanetkiler" placeholder="Yan Etkiler">
+                        </div>
+                        <div style="margin-bottom:25px" class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                            <input id="ilac-resimurl" type="text" class="form-control" name="resimUrl" placeholder="Resim URL'si Girin">
+                        </div>
+                        <!--sifre-->
+
+                        <div class="pull-right">
+                            <input type="submit" class="btn btn-info" value="Kayıt Ol">
+
+                        </div>
+                    </form>
+                </div>
+
+                <div class="panel-footer clearfix">
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>

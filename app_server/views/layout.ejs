@@ -1,0 +1,181 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="/public/css/bootstrap.css" />
+    <link rel="stylesheet" href="/public/css/bootstrap-theme.css" />
+    <link rel="stylesheet" href="/public/css/style.css">
+    <link rel="stylesheet" href="/public/css/chatstyle.css">
+    <link rel="stylesheet" href=/public/font-awesome/css/font-awesome.min.css>
+    <link href="https://fonts.googleapis.com/css?family=Monoton" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+</head>
+
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+                <a class="navbar-brand" href="/"><b><i class="fa fa-heartbeat" aria-hidden="true"></i> İlaç Yorumla</b></a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                <form class="navbar-form navbar-right">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Ara">
+                    </div>
+
+                </form>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/">Anasayfa</a></li>
+                    <li><a href="/login/signup">Kayıt Ol</a></li>
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">ilaçlar <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/ilac">Tüm İlaçlar</a></li>
+                            <li><a href="/ilac/ilacekle">İlaç Ekle</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="/giris">Bootstrap Yapısı</a></li>
+                        </ul>
+
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hastalıklar <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/ilac">Sırt Ağrısı</a></li>
+                            <li><a href="/ilac/ilacekle">Astım</a></li>
+                            <li><a href="/ilac/ilacekle">Asperger Sendromu</a></li>
+                            <li><a href="/ilac/ilacekle">Otism Hastalığı</a></li>
+                            <li><a href="/ilac/ilacekle">Travma Sonrası Bunalımı</a></li>
+                            <li><a href="/ilac/ilacekle">Kalp ve Kan</a></li>
+
+                            <li><a href="/ilac/ilacekle">Yüksek Tansiyon</a></li>
+                            <li><a href="/ilac/ilacekle">Deri Kanseri</a></li>
+                            <li><a href="/ilac/ilacekle">Yardımcı Bilgile</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="/giris">Bootstrap Yapısı</a></li>
+                        </ul>
+
+                    </li>
+                       <li><a href="/api">API's</a></li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+<br>
+<br><br>
+<br>
+<div class="container">
+
+    <%-body%>
+</div>
+<div class="container-fluid" style="background-color:#fff;min-height:80px">Hakkımızda</div>
+    <div class="pull-right h91">
+
+        <div class="chat">
+            <p id="acik-sohbet">Açık Sohbet Odası <i class="fa fa-commenting-o" aria-hidden="true"></i></p>
+            <div id="contentWrap">
+                <div id="chatWrap" class="chat-messages">
+                    <div id="chat2">
+                    </div>
+
+                </div>
+                <textarea placeholder="Mesajınızı Buraya Yazın" id="message"></textarea>
+
+
+            </div>
+        </div>
+
+    </div>
+    
+        <script type="text/javascript" src="/public/js/jquery-3.1.1.min.js"></script>
+        <script type="text/javascript" src="/public/js/bootstrap.js"></script>
+        <script src="../../public/js/socket.io.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script>
+            jQuery(function($) {
+
+                var socket = io.connect("http://localhost:3000");
+                //    var $nickForm = $('#setNick');
+                //     var $nickError = $('#nickError');
+                //       var $nickBox = $('#nickname');
+                //     var $users = $('#users');
+                //     var kullanıcılar;
+
+                //  var $messageForm = $('#send-message');
+                var $messageBox = $('#message');
+                var $chat = $('#chat2');
+                var d = $('#chatWrap');
+
+                $("#acik-sohbet").click(function() {
+                    $('#contentWrap').toggle('fast');
+                    $("#chatWrap").animate({
+                        scrollTop: $('#chatWrap').prop("scrollHeight")
+                    }, 500);
+                });
+
+                socket.on('newMessage', function(data) {
+                    displayMsg(data);
+                });
+
+                socket.on('loadOldMsgs', function(docs) {
+                    //  $('#contentWrap').show();
+                    // $('#send-message').hide();
+                    for (var i = 0; i < docs.length; i++) {
+                        displayMsg(docs[i]);
+                    }
+                    $chat.append('<div class="acik-sohbet">Yeni Mesajlar..  <i class="fa fa-bell-o" aria-hidden="true"></i></div>');
+                    $("#chatWrap").animate({
+                        scrollTop: $('#chatWrap').prop("scrollHeight")
+                    }, 500);
+
+                })
+                var $i = 0;
+
+                function displayMsg(data) {
+
+                    if ($i % 2 == 0) {
+                        $i++;
+                        $chat.append('<div class="mesajlar"><span class="sari"><b><i class="glyphicon glyphicon-user"></i>' + data.nick + ':</b></span>' + data.msg + '</div>');
+                    } else {
+                        $i++;
+                        $chat.append('<div class="mesajlar2"><span class="sari"><b><i class="glyphicon glyphicon-user"></i>' + data.nick + ':</b></span>' + data.msg + '</div>');
+                    }
+
+
+                }
+                $messageBox.on('keydown', function(e) {
+                    console.log(e);
+                    if (e.keyCode === 13 && e.shiftKey === false) {
+
+                        $("#chatWrap").animate({
+                            scrollTop: $('#chatWrap').prop("scrollHeight")
+                        }, 1000);
+                        socket.emit('sendMessage', $messageBox.val(), function(data) {
+
+                            $chat.append('<span class="error"><b>' + data + '</span><br>');
+
+
+
+                        });
+                        $messageBox.val('');
+
+
+                    }
+                })
+            })
+        </script>
+</body>
+
+</html>

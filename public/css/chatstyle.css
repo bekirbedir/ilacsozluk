@@ -1,0 +1,187 @@
+.chat {
+    width: 330px;
+    background-color: #fff;
+    box-shadow: 0px 0px 5px 0px seagreen;
+    -webkit-box-shadow: 0px 0px 5px 0px seagreen;
+}
+
+.h91 {
+    z-index: 5;
+    position: fixed;
+    bottom: 0;
+    right: 5;
+}
+
+#contentWrap {
+    height: 330px;
+    display: none;
+}
+
+.chat-messages,
+.chat textarea,
+.chat-name {
+    border: 1px solid #bbb;
+}
+
+.chat-messages {
+    height: 82%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding: 1px;
+}
+
+.chat-name {
+    width: 100%;
+    padding: 10px;
+    margin: 0;
+}
+
+.chat textarea,
+alan {
+    width: 100%;
+    padding: 10px;
+    margin: 0;
+    border-top: 0;
+    max-width: 100%;
+}
+
+.chat-status {
+    color: #bbb;
+}
+
+.chat textarea,
+.chat-name {
+    outline: none;
+}
+
+.chat-message {
+    margin-bottom: 7px;
+    font: #000;
+}
+
+.error {
+    color: red;
+}
+
+.sari {
+    font-family: "Lucida Grande", sans-serif;
+    padding-left: 5px;
+    margin-right: 5px;
+    color: cadetblue;
+}
+
+.whisper {
+    font-family: "Lucida Grande", sans-serif;
+    margin: 5px;
+    padding: 10px;
+    padding-left: 20px;
+    color: blue;
+}
+
+.sag-alt {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+
+.yeni-mesaj {
+    width: 100%;
+    background: seagreen;
+    text-align: center;
+    padding: 5px;
+    color: #fff;
+}
+
+.mesajlar {
+    margin: 3px;
+    padding: 5px;
+    background-color: cornsilk;
+    font-family: 'Indie Flower', cursive;
+}
+
+.mesajlar2 {
+    margin: 3px;
+    padding: 5px;
+    background-color: mintcream;
+    font-family: 'Indie Flower', cursive;
+}
+
+.gorenler {
+    font-size: 10px;
+    color: royalblue;
+}
+
+.grup-mesajlar {
+    font-family: "Lucida Grande", sans-serif;
+    margin: 5px;
+    padding: 10px;
+    padding-left: 20px;
+    color: brown;
+    background-color: #fff;
+}
+
+.cevrimci {
+    padding: 5px;
+    height: 100%;
+    border: 1px solid wheat;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#fcfff4+0,e9e9ce+100;Wax+3D+%232 */
+    background: #fcfff4;
+    /* Old browsers */
+    background: -moz-linear-gradient(top, #fcfff4 0%, #e9e9ce 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #fcfff4 0%, #e9e9ce 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #fcfff4 0%, #e9e9ce 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#fcfff4', endColorstr='#e9e9ce', GradientType=0);
+}
+
+.cevrimci>h1 {
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    color: dimgray;
+    text-shadow: 1px 1px 1px #a2148b;
+}
+
+.cevrimci>ul>li {
+    width: 100%;
+    padding: 5px;
+    margin: 2px;
+    font-size: 15px;
+    list-style: none;
+}
+
+.sari>.glyphicon {
+    margin-right: 2px;
+    color: #12F007;
+    margin-right: 5px;
+}
+
+.giris-button {
+    margin-top: 5px;
+    width: 100%;
+}
+
+.ortala {
+    margin: 25%;
+}
+
+.yazi {
+    font-family: 'Indie Flower', cursive;
+    font-size: 50px;
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+}
+
+#acik-sohbet,
+.acik-sohbet {
+    font-size: 1em;
+    background-color: seagreen;
+    color: #fff;
+    padding: 2px;
+    text-align: center;
+    font-family: 'Helvetica';
+    margin: 0;
+}
