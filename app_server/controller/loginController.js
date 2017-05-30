@@ -7,10 +7,13 @@ module.exports.index = function(req, res) {
 module.exports.indexPost = function(req, res) {
     console.log("login indexPost Çağırıldı");
     console.log(req.body);
+    req.session.username=req.body.username;
+
     res.render('login', {
         username: req.body.username,
         password: req.body.password
     });
+
 
 }
 module.exports.signUpGet = function(req, res) {

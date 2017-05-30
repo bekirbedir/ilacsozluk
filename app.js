@@ -7,45 +7,54 @@ var ejsLayouts = require('express-ejs-layouts');
 var nodemailer = require('nodemailer');
 var db = require('./app_server/models/db');
 
+//session ve redis sunucu için
+var session = require('express-session')
+var redis   = require("redis");
+var redisStore = require('connect-redis')(session);
+var client  = redis.createClient();
+
 var app = express();
 var server = require('http').createServer(app);
 
+
 var io = require('socket.io')(server);
 server.listen(3000);
-//??????????????????????????????????????????
+
+var cookieParser = require('cookie-parser'),
+myCookieParser = cookieParser('mysecret')
+var  sessionStore = new redisStore({ host: 'localhost', port: 6379, client: client,ttl : 260})
+var SessionSockets = require('session.socket.io')
+var sessionSockets = new SessionSockets(io, sessionStore,myCookieParser);
+
+
 
 var chat = require('./app_server/models/chat');
+sessionSockets.on('connection', function(err,socket,session) {
 
-
-io.sockets.on('connection', function(socket) {
-    console.log('birisi bağlandi');
     var sorgu = chat.find({ $or: [{ "kime": 'data' }, { "kime": "all" }] });
     sorgu.sort('created').exec(function(err, results) {
 
+        console.log(results["created"],"+hey")
+
         socket.emit('loadOldMsgs', results);
     })
-    socket.on('sendMessage', function(data, callback) {
+    socket.on('sendMessage', function(data) {
         var msg = data.trim();
         console.log(msg);
+        console.log(session.username);
 
-
-        var newMsg = new chat({ msg: msg, nick: socket.nickname });
+        var newMsg = new chat({ msg: msg, nick: session.username });
         newMsg.save(function(err) {
             if (err) throw err;
-            io.sockets.emit('newMessage', { "msg": msg, "nick": 'nick2' });
+            io.sockets.emit('newMessage', { "msg": msg, "nick": session.username });
+
 
         })
     });
 
 
-    /*
-        function updateNicknames() {
 
-            io.sockets.emit('usernames', Object.keys(users));
-
-        } */
-
-    socket.on('disconnect', function(data) {
+    socket.on('disconnect', function() {
         if (!socket.nickname) return;
         delete users[socket.nickname];
 
@@ -56,7 +65,13 @@ io.sockets.on('connection', function(socket) {
 
 //??????????????????????????????????????????????
 
-
+app.use(session({
+    secret: 'mysecret',
+    store:sessionStore ,
+    saveUninitialized: false,
+    resave: false
+    //cookie: {maxAge: 3600000}, //oturum süresi 1 saat
+}));
 
 app.use('/public', express.static(__dirname + '/public'));
 app.set('view engine', 'ejs');
